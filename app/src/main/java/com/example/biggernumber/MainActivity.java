@@ -67,6 +67,12 @@ public class MainActivity extends AppCompatActivity {
 
     public void setRandomNumbers()
     {
+        if (score == -5)
+        {
+            score = 0;
+            Toast.makeText(getApplicationContext(), "Game Over", Toast.LENGTH_SHORT).show();
+        }
+
         Random rand = new Random ();
         n = rand.nextInt(10);
         while (true)
@@ -95,6 +101,7 @@ public class MainActivity extends AppCompatActivity {
         else
         {
             Toast.makeText(getApplicationContext(), "Try Again!", Toast.LENGTH_SHORT).show();
+            score --;
         }
 
         TextView scoreBoard = this.findViewById(R.id.score);
@@ -113,6 +120,7 @@ public class MainActivity extends AppCompatActivity {
         else
         {
             Toast.makeText(getApplicationContext(), "Try Again!", Toast.LENGTH_SHORT).show();
+            score --;
         }
 
         TextView scoreBoard = this.findViewById(R.id.score);
