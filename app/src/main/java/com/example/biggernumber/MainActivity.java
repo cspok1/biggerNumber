@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.Random;
@@ -21,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
 
     private int n;
     private int n1;
+    private int score = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,11 +90,15 @@ public class MainActivity extends AppCompatActivity {
         if (n > n1)
         {
             Toast.makeText(getApplicationContext(), "You're right!", Toast.LENGTH_SHORT).show();
+            score ++;
         }
         else
         {
             Toast.makeText(getApplicationContext(), "Try Again!", Toast.LENGTH_SHORT).show();
         }
+
+        TextView scoreBoard = this.findViewById(R.id.score);
+        scoreBoard.setText("Your Score:" + score);
 
         setRandomNumbers();
     }
@@ -102,11 +108,15 @@ public class MainActivity extends AppCompatActivity {
         if (n1 > n)
         {
             Toast.makeText(getApplicationContext(), "You're right!", Toast.LENGTH_SHORT).show();
+            score ++;
         }
         else
         {
             Toast.makeText(getApplicationContext(), "Try Again!", Toast.LENGTH_SHORT).show();
         }
+
+        TextView scoreBoard = this.findViewById(R.id.score);
+        scoreBoard.setText("Your Score:" + score);
 
         setRandomNumbers();
     }
